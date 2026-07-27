@@ -1,0 +1,38 @@
+name: LuckyPilot veröffentlichen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository laden
+        uses: actions/checkout@v4
+
+      - name: GitHub Pages konfigurieren
+        uses: actions/configure-pages@v5
+
+      - name: Statische Webseite vorbereiten
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+      - name: Webseite veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v5
