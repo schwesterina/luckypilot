@@ -1,0 +1,41 @@
+[
+  {
+    "id": "demo-familienurlaub",
+    "name": "Familienurlaub an der Ostsee",
+    "platform": "Beispiel-Veranstalter",
+    "prize": "7 Übernachtungen für 2 Erwachsene und 1 Kind",
+    "category": "Reise",
+    "deadline": "2026-08-31",
+    "multiple": "Nein",
+    "interval": "Einmalig",
+    "link": "https://example.com",
+    "notes": "Beispieleintrag – vor Veröffentlichung durch eine echte, zulässige Quelle ersetzen.",
+    "added": "2026-07-27"
+  },
+  {
+    "id": "demo-technik",
+    "name": "Technikpaket gewinnen",
+    "platform": "Beispiel-Magazin",
+    "prize": "Konsole, Controller und Spiele",
+    "category": "Technik",
+    "deadline": "2026-08-15",
+    "multiple": "Ja",
+    "interval": "Täglich",
+    "link": "https://example.com",
+    "notes": "Beispieleintrag – LuckyPilot nimmt niemals automatisch teil.",
+    "added": "2026-07-27"
+  },
+  {
+    "id": "demo-bargeld",
+    "name": "1.000 Euro Sommergeld",
+    "platform": "Beispiel-Portal",
+    "prize": "1.000 Euro Bargeld",
+    "category": "Geld",
+    "deadline": "2026-08-05",
+    "multiple": "Nein",
+    "interval": "Einmalig",
+    "link": "https://example.com",
+    "notes": "Beispieleintrag für den ersten Online-Test.",
+    "added": "2026-07-27"
+  }
+]
