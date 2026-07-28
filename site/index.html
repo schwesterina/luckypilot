@@ -1,42 +1,133 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#087443">
-<title>LuckyPilot – Dein Gewinnspiel-Assistent</title>
-<meta name="description" content="LuckyPilot sortiert Gewinnspiele, Favoriten, Teilnahmen und Gewinne übersichtlich an einem Ort.">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<style>
-:root{--bg:#f4f8f5;--surface:#fff;--text:#17372b;--muted:#687a71;--primary:#087443;--primary2:#12a15a;--line:#dce9e1;--warning:#a86600;--danger:#a93636;--shadow:0 12px 35px rgba(13,72,43,.09)}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}button,input,select,textarea{font:inherit}.top{background:linear-gradient(135deg,#075f38,#11a45d);color:white;padding:24px max(18px,5vw) 30px}.head{max-width:1450px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand h1{margin:0;font-size:clamp(28px,4vw,42px)}.brand p{margin:5px 0 0;opacity:.88}.sync{border:1px solid #ffffff55;background:#ffffff1f;color:#fff;padding:11px 16px;border-radius:12px;cursor:pointer;font-weight:700}.sync:hover{background:#ffffff2f}.wrap{max-width:1450px;margin:-16px auto 0;padding:0 max(14px,4vw) 35px}.kpis{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:12px}.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.kpi{padding:17px}.kpi strong{font-size:29px;display:block}.kpi span{color:var(--muted);font-size:13px}.notice{margin-top:16px;padding:14px 17px;display:flex;gap:12px;align-items:center}.notice b{display:block}.notice small{color:var(--muted)}.toolbar{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0}.toolbar input,.toolbar select{background:white;border:1px solid var(--line);border-radius:11px;padding:11px 12px}.toolbar input{flex:1;min-width:210px}.btn{border:1px solid var(--line);background:white;color:var(--text);padding:10px 13px;border-radius:11px;cursor:pointer;font-weight:650}.btn.primary{background:var(--primary);border-color:var(--primary);color:white}.tabs{display:flex;gap:8px;overflow:auto;padding:0 0 4px;margin-bottom:12px}.tab{white-space:nowrap;border:1px solid var(--line);background:white;padding:9px 13px;border-radius:999px;cursor:pointer}.tab.active{background:#dff4e8;border-color:#a9ddbf;color:#075f38;font-weight:700}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.item{padding:17px;position:relative;display:flex;flex-direction:column;min-height:240px}.item h3{margin:7px 0 5px;font-size:18px}.meta{color:var(--muted);font-size:13px}.prize{font-size:16px;font-weight:750;margin:12px 0}.badges{display:flex;gap:6px;flex-wrap:wrap}.badge{font-size:12px;padding:5px 8px;border-radius:999px;background:#edf5f0;color:#315d49}.badge.urgent{background:#ffe4df;color:#8b2f26}.badge.repeat{background:#fff0c9;color:#795000}.grow{flex:1}.actions{display:flex;gap:8px;margin-top:14px}.actions a,.actions button{flex:1;text-align:center;text-decoration:none}.done{opacity:.62}.done:after{content:'✓ Teilgenommen';position:absolute;right:13px;top:13px;background:#dff4e8;color:#07613a;padding:5px 8px;border-radius:999px;font-size:12px;font-weight:750}.empty{text-align:center;padding:48px 20px}.foot{color:var(--muted);font-size:12px;margin-top:18px}.modal-bg{display:none;position:fixed;inset:0;background:#0008;z-index:20;align-items:center;justify-content:center;padding:15px}.modal{max-width:660px;width:100%;max-height:92vh;overflow:auto;background:white;border-radius:20px;padding:22px}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form label{font-size:13px}.form input,.form select,.form textarea{width:100%;margin-top:5px;border:1px solid var(--line);border-radius:10px;padding:10px}.full{grid-column:1/-1}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:17px}@media(max-width:1000px){.kpis{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.head{align-items:flex-start;flex-direction:column}.wrap{margin:-10px auto 0}.kpis{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.form{grid-template-columns:1fr}.full{grid-column:auto}.sync{width:100%}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#2f8f5b">
+  <title>LuckyPilot – Dein Gewinnspiel-Assistent</title>
+  <meta name="description" content="LuckyPilot hilft dir, seriöse Gewinnspiele zu finden, Fristen im Blick zu behalten und deine Teilnahmen übersichtlich zu organisieren.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top"><div class="head"><div class="brand"><h1>🍀 LuckyPilot</h1><p>Dein täglicher Gewinnspiel-Assistent.</p></div><button class="sync" id="syncBtn">↻ Jetzt aktualisieren</button></div></header>
-<main class="wrap">
-<section class="kpis"><div class="card kpi"><strong id="kNew">0</strong><span>Neu verfügbar</span></div><div class="card kpi"><strong id="kOpen">0</strong><span>Noch offen</span></div><div class="card kpi"><strong id="kUrgent">0</strong><span>Enden bald</span></div><div class="card kpi"><strong id="kRepeat">0</strong><span>Erneut möglich</span></div><div class="card kpi"><strong id="kDone">0</strong><span>Teilgenommen</span></div><div class="card kpi"><strong id="kWins">0</strong><span>Gewinne</span></div></section>
-<section class="card notice"><div style="font-size:24px">🔄</div><div><b id="syncText">Gewinnspielliste wird geladen …</b><small id="syncSub">Deine Markierungen bleiben privat auf diesem Gerät gespeichert.</small></div></section>
-<div class="toolbar"><input id="search" placeholder="Gewinnspiel, Preis oder Anbieter suchen …"><select id="category"><option value="">Alle Kategorien</option></select><select id="platform"><option value="">Alle Plattformen</option></select><button class="btn primary" id="addBtn">＋ Eigenes hinzufügen</button><button class="btn" id="backupBtn">Sicherung</button><label class="btn">Sicherung laden<input type="file" id="restoreFile" accept="application/json" hidden></label></div>
-<div class="tabs"><button class="tab active" data-view="today">Heute</button><button class="tab" data-view="all">Alle</button><button class="tab" data-view="new">Neu</button><button class="tab" data-view="favorites">Favoriten</button><button class="tab" data-view="repeat">Mehrfach</button><button class="tab" data-view="done">Teilgenommen</button><button class="tab" data-view="wins">Gewonnen</button></div>
-<section id="cards" class="grid"></section><section id="empty" class="card empty" hidden>Keine passenden Gewinnspiele gefunden.</section>
-<p class="foot">LuckyPilot nimmt nicht automatisch teil und umgeht keine Regeln. Bitte Teilnahmebedingungen vor dem Absenden prüfen.</p>
-</main>
-<div class="modal-bg" id="modalBg"><div class="modal"><h2>Eigenes Gewinnspiel hinzufügen</h2><div class="form"><label>Name<input id="fName"></label><label>Anbieter/Plattform<input id="fPlatform"></label><label>Gewinn<input id="fPrize"></label><label>Kategorie<select id="fCategory"><option>Reise</option><option>Geld</option><option>Auto</option><option>Technik</option><option>Gutschein</option><option>Haushalt</option><option>Sonstiges</option></select></label><label>Teilnahmeschluss<input id="fDeadline" type="date"></label><label>Mehrfachteilnahme<select id="fMultiple"><option>Unbekannt</option><option>Nein</option><option>Ja</option></select></label><label>Intervall<select id="fInterval"><option>Unbekannt</option><option>Einmalig</option><option>Täglich</option><option>Alle 24 Stunden</option><option>Wöchentlich</option></select></label><label class="full">Direktlink<input id="fLink" type="url"></label><label class="full">Notiz<textarea id="fNotes" rows="3"></textarea></label></div><div class="modal-actions"><button class="btn" id="cancelBtn">Abbrechen</button><button class="btn primary" id="saveBtn">Speichern</button></div></div></div>
-<script>
-const SOURCE='gewinnspiele.json';const state={remote:[],custom:JSON.parse(localStorage.getItem('lp_custom')||'[]'),done:JSON.parse(localStorage.getItem('lp_done')||'{}'),fav:JSON.parse(localStorage.getItem('lp_fav')||'{}'),wins:JSON.parse(localStorage.getItem('lp_wins')||'{}'),view:'today'};const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));const today=()=>new Date().toISOString().slice(0,10);function idOf(x){return x.id||btoa(unescape(encodeURIComponent((x.name||'')+'|'+(x.link||'')))).replace(/=/g,'')}
-async function sync(){const btn=$('syncBtn');btn.disabled=true;btn.textContent='↻ Lade …';try{const r=await fetch(SOURCE+'?v='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error();const data=await r.json();if(!Array.isArray(data))throw new Error();state.remote=data.filter(valid);localStorage.setItem('lp_remote_cache',JSON.stringify(state.remote));$('syncText').textContent=`${state.remote.length} aktuelle Gewinnspiele geladen`;$('syncSub').textContent='Zuletzt aktualisiert: '+new Date().toLocaleString('de-DE');}catch(e){state.remote=JSON.parse(localStorage.getItem('lp_remote_cache')||'[]');$('syncText').textContent=state.remote.length?'Offline – zuletzt gespeicherte Liste geöffnet':'Noch keine Online-Liste vorhanden';$('syncSub').textContent='Sobald gewinnspiele.json aktualisiert wird, erscheinen neue Einträge automatisch.';}finally{btn.disabled=false;btn.textContent='↻ Jetzt aktualisieren';render()}}
-function valid(x){return x&&x.name&&x.link&&(!x.deadline||x.deadline>=today())}
-function all(){const map=new Map();[...state.remote,...state.custom].forEach(x=>map.set(idOf(x),{...x,id:idOf(x)}));return [...map.values()]}
-function daysLeft(s){if(!s)return 999;return Math.ceil((new Date(s+'T23:59:59')-new Date())/86400000)}
-function render(){const q=$('search').value.toLowerCase(),cat=$('category').value,plat=$('platform').value;let list=all();fillFilters(list,cat,plat);const now=today();list=list.filter(x=>{const d=state.done[x.id];const newItem=!d&&(!x.added||daysLeft(x.added)<=7);const repeat=x.multiple==='Ja';const fav=!!state.fav[x.id],win=!!state.wins[x.id],urgent=daysLeft(x.deadline)<=3;if(state.view==='today'&&!(newItem||urgent||repeat))return false;if(state.view==='new'&&!newItem)return false;if(state.view==='favorites'&&!fav)return false;if(state.view==='repeat'&&!repeat)return false;if(state.view==='done'&&!d)return false;if(state.view==='wins'&&!win)return false;return(!q||JSON.stringify(x).toLowerCase().includes(q))&&(!cat||x.category===cat)&&(!plat||x.platform===plat)}).sort((a,b)=>(state.done[a.id]?1:0)-(state.done[b.id]?1:0)||daysLeft(a.deadline)-daysLeft(b.deadline));$('cards').innerHTML=list.map(card).join('');$('empty').hidden=list.length>0;const complete=all();$('kNew').textContent=complete.filter(x=>!state.done[x.id]&&(!x.added||daysLeft(x.added)<=7)).length;$('kOpen').textContent=complete.filter(x=>!state.done[x.id]).length;$('kUrgent').textContent=complete.filter(x=>!state.done[x.id]&&daysLeft(x.deadline)<=3).length;$('kRepeat').textContent=complete.filter(x=>x.multiple==='Ja').length;$('kDone').textContent=Object.keys(state.done).filter(k=>state.done[k]).length;$('kWins').textContent=Object.keys(state.wins).filter(k=>state.wins[k]).length}
-function fillFilters(list,cat,plat){const cats=[...new Set(list.map(x=>x.category).filter(Boolean))].sort(),plats=[...new Set(list.map(x=>x.platform).filter(Boolean))].sort();$('category').innerHTML='<option value="">Alle Kategorien</option>'+cats.map(x=>`<option ${x===cat?'selected':''}>${esc(x)}</option>`).join('');$('platform').innerHTML='<option value="">Alle Plattformen</option>'+plats.map(x=>`<option ${x===plat?'selected':''}>${esc(x)}</option>`).join('')}
-function card(x){const done=!!state.done[x.id],fav=!!state.fav[x.id],win=!!state.wins[x.id],left=daysLeft(x.deadline);return `<article class="card item ${done?'done':''}"><div class="badges"><span class="badge">${esc(x.category||'Sonstiges')}</span>${fav?'<span class="badge">★ Favorit</span>':''}${win?'<span class="badge">🏆 Gewonnen</span>':''}${x.multiple==='Ja'?`<span class="badge repeat">↻ ${esc(x.interval||'Mehrfach')}</span>`:''}${left<=3?`<span class="badge urgent">${left<0?'Abgelaufen':left===0?'Endet heute':`Noch ${left} Tage`}</span>`:''}</div><h3>${esc(x.name)}</h3><div class="meta">${esc(x.platform||'Website')} · Ende: ${x.deadline?new Date(x.deadline+'T12:00:00').toLocaleDateString('de-DE'):'nicht angegeben'}</div><div class="prize">🎁 ${esc(x.prize||'Gewinn ansehen')}</div><div class="grow meta">${esc(x.notes||'')}</div><div class="actions"><a class="btn primary" href="${esc(x.link)}" target="_blank" rel="noopener">Teilnehmen ↗</a><button class="btn" onclick="toggleDone('${x.id}')">${done?'↶ Offen':'✓ Erledigt'}</button></div><div class="actions"><button class="btn" onclick="toggleFav('${x.id}')">${fav?'★ Favorit':'☆ Merken'}</button><button class="btn" onclick="toggleWin('${x.id}')">${win?'🏆 Gewinn entfernen':'🏆 Gewinn'}</button></div></article>`}
-window.toggleDone=id=>{state.done[id]=!state.done[id];if(!state.done[id])delete state.done[id];localStorage.setItem('lp_done',JSON.stringify(state.done));render()};window.toggleFav=id=>{state.fav[id]=!state.fav[id];if(!state.fav[id])delete state.fav[id];localStorage.setItem('lp_fav',JSON.stringify(state.fav));render()};window.toggleWin=id=>{state.wins[id]=!state.wins[id];if(!state.wins[id])delete state.wins[id];localStorage.setItem('lp_wins',JSON.stringify(state.wins));render()};function saveCustom(){const x={id:'custom-'+Date.now(),name:$('fName').value.trim(),platform:$('fPlatform').value.trim()||'Website',prize:$('fPrize').value.trim(),category:$('fCategory').value,deadline:$('fDeadline').value,multiple:$('fMultiple').value,interval:$('fInterval').value,link:$('fLink').value.trim(),notes:$('fNotes').value.trim(),added:today()};if(!x.name||!x.link)return alert('Bitte Name und Direktlink eintragen.');state.custom.unshift(x);localStorage.setItem('lp_custom',JSON.stringify(state.custom));closeModal();render()}
-function openModal(){$('modalBg').style.display='flex'}function closeModal(){$('modalBg').style.display='none';['fName','fPlatform','fPrize','fDeadline','fLink','fNotes'].forEach(id=>$(id).value='')}
-function backup(){const data={custom:state.custom,done:state.done,fav:state.fav,wins:state.wins,created:new Date().toISOString()};const b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='LuckyPilot_Sicherung_'+today()+'.json';a.click();URL.revokeObjectURL(a.href)}
-function restore(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);state.custom=Array.isArray(d.custom)?d.custom:[];state.done=d.done||{};state.fav=d.fav||{};state.wins=d.wins||{};localStorage.setItem('lp_custom',JSON.stringify(state.custom));localStorage.setItem('lp_done',JSON.stringify(state.done));localStorage.setItem('lp_fav',JSON.stringify(state.fav));localStorage.setItem('lp_wins',JSON.stringify(state.wins));render();alert('Sicherung geladen.')}catch{alert('Diese Sicherung konnte nicht gelesen werden.')}};r.readAsText(f)}
-$('syncBtn').onclick=sync;$('addBtn').onclick=openModal;$('cancelBtn').onclick=closeModal;$('saveBtn').onclick=saveCustom;$('backupBtn').onclick=backup;$('restoreFile').onchange=restore;$('search').oninput=render;$('category').onchange=render;$('platform').onchange=render;document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.view=b.dataset.view;render()});$('modalBg').onclick=e=>{if(e.target===$('modalBg'))closeModal()};if('serviceWorker'in navigator)navigator.serviceWorker.register('service-worker.js').catch(()=>{});sync();
-</script>
-</body></html>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="LuckyPilot Startseite">
+        <img src="logo.svg" alt="" width="44" height="44">
+        <span><strong>LuckyPilot</strong><small>Mehr Chancen. Weniger Aufwand.</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#gewinnspiele">Gewinnspiele</a>
+        <a href="#rechtliches">Rechtliches</a>
+      </nav>
+      <button class="button button-ghost" id="syncBtn">↻ Aktualisieren</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">🍀 Dein persönlicher Gewinnspiel-Assistent</span>
+        <h1>Finde Chancen.<br><span>Behalte den Überblick.</span></h1>
+        <p>Organisiere Gewinnspiele, Favoriten, Fristen und Teilnahmen an einem Ort – übersichtlich, kostenlos und ohne automatische Teilnahme.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#gewinnspiele">Gewinnspiele entdecken</a>
+          <button class="button button-soft" id="heroAddBtn">＋ Eigenes hinzufügen</button>
+        </div>
+      </div>
+      <div class="hero-panel card">
+        <div class="hero-panel-head"><span>Heute im Blick</span><span class="gold-dot">●</span></div>
+        <div class="hero-list">
+          <div><span>Neu verfügbar</span><strong id="heroNew">0</strong></div>
+          <div><span>Enden bald</span><strong id="heroUrgent">0</strong></div>
+          <div><span>Favoriten</span><strong id="heroFav">0</strong></div>
+        </div>
+        <p id="syncSub">Deine Markierungen bleiben privat auf diesem Gerät gespeichert.</p>
+      </div>
+    </section>
+
+    <section class="section-shell" id="dashboard">
+      <div class="section-heading">
+        <div><span class="eyebrow">Dashboard</span><h2>Dein Überblick</h2></div>
+        <p id="syncText">Gewinnspielliste wird geladen …</p>
+      </div>
+      <div class="kpi-grid">
+        <article class="card kpi"><span class="kpi-icon">✨</span><strong id="kNew">0</strong><small>Neu verfügbar</small></article>
+        <article class="card kpi"><span class="kpi-icon">🎯</span><strong id="kOpen">0</strong><small>Noch offen</small></article>
+        <article class="card kpi"><span class="kpi-icon">⏰</span><strong id="kUrgent">0</strong><small>Enden bald</small></article>
+        <article class="card kpi"><span class="kpi-icon">↻</span><strong id="kRepeat">0</strong><small>Erneut möglich</small></article>
+        <article class="card kpi"><span class="kpi-icon">✓</span><strong id="kDone">0</strong><small>Teilgenommen</small></article>
+        <article class="card kpi"><span class="kpi-icon">🏆</span><strong id="kWins">0</strong><small>Gewinne</small></article>
+      </div>
+    </section>
+
+    <section class="section-shell" id="gewinnspiele">
+      <div class="section-heading">
+        <div><span class="eyebrow">Gewinnspiele</span><h2>Finde das Passende</h2></div>
+        <div class="inline-actions">
+          <button class="button button-soft" id="backupBtn">Sicherung</button>
+          <label class="button button-soft">Sicherung laden<input type="file" id="restoreFile" accept="application/json" hidden></label>
+          <button class="button button-primary" id="addBtn">＋ Hinzufügen</button>
+        </div>
+      </div>
+
+      <div class="filter-card card">
+        <input id="search" type="search" placeholder="Gewinnspiel, Preis oder Anbieter suchen …" aria-label="Gewinnspiele suchen">
+        <select id="category" aria-label="Kategorie filtern"><option value="">Alle Kategorien</option></select>
+        <select id="platform" aria-label="Plattform filtern"><option value="">Alle Plattformen</option></select>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Ansicht wählen">
+        <button class="tab active" data-view="today">Heute</button>
+        <button class="tab" data-view="all">Alle</button>
+        <button class="tab" data-view="new">Neu</button>
+        <button class="tab" data-view="favorites">Favoriten</button>
+        <button class="tab" data-view="repeat">Mehrfach</button>
+        <button class="tab" data-view="done">Teilgenommen</button>
+        <button class="tab" data-view="wins">Gewonnen</button>
+      </div>
+
+      <section id="cards" class="contest-grid"></section>
+      <section id="empty" class="card empty" hidden>
+        <div class="empty-icon">🍀</div>
+        <h3>Keine passenden Gewinnspiele gefunden</h3>
+        <p>Ändere deine Suche oder wähle einen anderen Filter.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer id="rechtliches">
+    <div class="footer-shell">
+      <div><strong>LuckyPilot</strong><p>Organisieren statt verpassen.</p></div>
+      <div class="footer-links">
+        <a href="legal/impressum.html">Impressum</a>
+        <a href="legal/datenschutz.html">Datenschutz</a>
+        <a href="legal/nutzungsbedingungen.html">Nutzungsbedingungen</a>
+      </div>
+      <p class="legal-note">LuckyPilot nimmt nicht automatisch teil und umgeht keine Regeln. Bitte prüfe vor jeder Teilnahme die Bedingungen des jeweiligen Veranstalters.</p>
+    </div>
+  </footer>
+
+  <div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-head"><div><span class="eyebrow">Eigener Eintrag</span><h2 id="modalTitle">Gewinnspiel hinzufügen</h2></div><button class="icon-button" id="closeBtn" aria-label="Fenster schließen">×</button></div>
+      <div class="form">
+        <label>Name<input id="fName"></label>
+        <label>Anbieter/Plattform<input id="fPlatform"></label>
+        <label>Gewinn<input id="fPrize"></label>
+        <label>Kategorie<select id="fCategory"><option>Reise</option><option>Geld</option><option>Auto</option><option>Technik</option><option>Gutschein</option><option>Haushalt</option><option>Sonstiges</option></select></label>
+        <label>Teilnahmeschluss<input id="fDeadline" type="date"></label>
+        <label>Mehrfachteilnahme<select id="fMultiple"><option>Unbekannt</option><option>Nein</option><option>Ja</option></select></label>
+        <label>Intervall<select id="fInterval"><option>Unbekannt</option><option>Einmalig</option><option>Täglich</option><option>Alle 24 Stunden</option><option>Wöchentlich</option></select></label>
+        <label class="full">Direktlink<input id="fLink" type="url" placeholder="https://…"></label>
+        <label class="full">Notiz<textarea id="fNotes" rows="3"></textarea></label>
+      </div>
+      <div class="modal-actions"><button class="button button-soft" id="cancelBtn">Abbrechen</button><button class="button button-primary" id="saveBtn">Speichern</button></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
