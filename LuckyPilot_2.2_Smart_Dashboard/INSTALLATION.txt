@@ -1,0 +1,33 @@
+LuckyPilot 2.2 – Smart Dashboard
+================================
+
+DATEIEN IN GITHUB ERSETZEN
+
+1. Öffne dein Repository: schwesterina/luckypilot
+2. Öffne den Ordner: site
+3. Ersetze diese drei Dateien:
+   - index.html
+   - style.css
+   - script.js
+4. logo.svg und der Ordner legal müssen nur hochgeladen werden, falls sie bei dir fehlen.
+5. NICHT löschen oder ersetzen:
+   - gewinnspiele.json
+   - manifest.webmanifest
+   - service-worker.js
+6. Commit-Nachricht:
+   LuckyPilot 2.2 Smart Dashboard
+7. Warte etwa 1–2 Minuten und öffne die Live-Seite.
+8. Falls noch die alte Version erscheint: Strg + F5 drücken oder die Seite in einem privaten Fenster öffnen.
+
+NEU IN VERSION 2.2
+- persönliche Begrüßung je nach Tageszeit
+- Empfehlung des Tages
+- transparenter LuckyScore
+- Fristenübersicht: heute, morgen, diese Woche
+- Tagesmission mit Fortschrittsanzeige
+- neue Karten mit Fristbalken und Score
+- zusätzlicher Filter „Endet bald“
+- mobile Optimierung
+
+WICHTIG
+Der LuckyScore ist keine Gewinnwahrscheinlichkeit. Er dient ausschließlich der Priorisierung nach Frist, Datenvollständigkeit, Mehrfachteilnahme und optionalen Qualitätsangaben.
