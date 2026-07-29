@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1F5C3A">
+  <title>LuckyPilot – Damit dir kein Gewinnspiel entgeht.</title>
+  <meta name="description" content="LuckyPilot hilft dir, externe Gewinnspiele zu finden, Fristen im Blick zu behalten und Teilnahmen zu organisieren.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=2.3.0">
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="#top" aria-label="LuckyPilot Startseite">
+      <img src="logo.svg" alt="Vierblättriges LuckyPilot-Kleeblatt" width="50" height="50">
+      <span><strong><b>Lucky</b>Pilot</strong><small>Damit dir kein Gewinnspiel entgeht.</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <a href="#dashboard">Dashboard</a><a href="#gewinnspiele">Gewinnspiele</a><a href="#rechtliches">Rechtliches</a>
+    </nav>
+    <button class="button button-ghost compact" id="syncBtn">↻ Aktualisieren</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">🍀 Dein Navigator für externe Gewinnspiele</span>
+      <h1 id="greeting">Guten Tag, Ina.</h1>
+      <p>Entdecke Gewinnspiele, behalte Fristen im Blick und organisiere deine Teilnahmen – ohne automatische Teilnahme.</p>
+      <div class="hero-actions"><a class="button button-primary" href="#gewinnspiele">Gewinnspiele ansehen</a><button class="button button-soft" id="heroAddBtn">＋ Eigenes hinzufügen</button></div>
+      <div class="trust-row"><span>✓ kostenlos</span><span>✓ keine automatische Teilnahme</span><span>✓ Originalquelle verlinkt</span></div>
+    </div>
+    <aside class="today-card card">
+      <div class="today-head"><div><span class="eyebrow">Heute für dich</span><h2>Deine Übersicht</h2></div><span class="today-date" id="todayDate"></span></div>
+      <div class="today-grid"><button class="today-stat" data-target-view="new"><strong id="heroNew">0</strong><span>Neu</span></button><button class="today-stat" data-target-view="all"><strong id="heroRecommended">0</strong><span>Priorisiert</span></button><button class="today-stat" data-target-view="urgent"><strong id="heroUrgent">0</strong><span>Endet heute</span></button><button class="today-stat" data-target-view="favorites"><strong id="heroFav">0</strong><span>Favoriten</span></button></div>
+      <p class="sync-note" id="syncSub">Deine persönlichen Markierungen werden lokal auf diesem Gerät gespeichert.</p>
+    </aside>
+  </section>
+
+  <section class="section-shell legal-banner" aria-label="Hinweis zu externen Gewinnspielen">
+    <div><strong>Wichtiger Hinweis</strong><p>LuckyPilot ist nicht Veranstalter der aufgeführten Aktionen. Teilnahme, Datenschutz und Teilnahmebedingungen richten sich ausschließlich nach den Angaben des jeweiligen Veranstalters.</p></div>
+    <a href="legal/gewinnspielhinweise.html">Mehr erfahren →</a>
+  </section>
+
+  <section class="section-shell" id="dashboard">
+    <div class="section-heading"><div><span class="eyebrow">Dashboard</span><h2>Dein Überblick</h2></div><p id="syncText">Gewinnspielliste wird geladen …</p></div>
+    <div class="kpi-grid"><article class="card kpi"><span>✨</span><strong id="kNew">0</strong><small>Neu verfügbar</small></article><article class="card kpi"><span>🎯</span><strong id="kOpen">0</strong><small>Noch offen</small></article><article class="card kpi"><span>⏰</span><strong id="kUrgent">0</strong><small>Enden bald</small></article><article class="card kpi"><span>↻</span><strong id="kRepeat">0</strong><small>Mehrfach möglich</small></article><article class="card kpi"><span>✓</span><strong id="kDone">0</strong><small>Teilgenommen</small></article><article class="card kpi gold-kpi"><span>🏆</span><strong id="kWins">0</strong><small>Gewinne</small></article></div>
+  </section>
+
+  <section class="section-shell recommendation-section" id="empfehlung">
+    <div class="section-heading"><div><span class="eyebrow gold">Priorität des Tages</span><h2>Ein sinnvoller Startpunkt</h2></div><p>Der LuckyScore ist eine transparente Sortierhilfe – keine Aussage über die Gewinnwahrscheinlichkeit.</p></div>
+    <div id="featuredCard" class="featured-placeholder card">Priorität wird berechnet …</div>
+  </section>
+
+  <section class="section-shell" id="gewinnspiele">
+    <div class="section-heading"><div><span class="eyebrow">Externe Aktionen</span><h2>Gewinnspiele finden</h2></div><div class="inline-actions"><button class="button button-soft" id="backupBtn">Sicherung</button><label class="button button-soft">Sicherung laden<input type="file" id="restoreFile" accept="application/json" hidden></label><button class="button button-primary" id="addBtn">＋ Hinzufügen</button></div></div>
+    <div class="filter-card card"><input id="search" type="search" placeholder="Gewinn, Veranstalter oder Kategorie suchen …" aria-label="Gewinnspiele suchen"><select id="category"><option value="">Alle Kategorien</option></select><select id="platform"><option value="">Alle Veranstalter</option></select></div>
+    <div class="tabs" role="tablist"><button class="tab active" data-view="today">Heute</button><button class="tab" data-view="all">Alle</button><button class="tab" data-view="new">Neu</button><button class="tab" data-view="urgent">Endet bald</button><button class="tab" data-view="favorites">Favoriten</button><button class="tab" data-view="repeat">Mehrfach</button><button class="tab" data-view="done">Teilgenommen</button><button class="tab" data-view="wins">Gewonnen</button></div>
+    <section id="cards" class="contest-grid"></section>
+    <section id="empty" class="card empty" hidden><div class="empty-icon">🍀</div><h3>Keine passenden Gewinnspiele gefunden</h3><p>Ändere deine Suche oder wähle einen anderen Filter.</p></section>
+  </section>
+</main>
+
+<footer id="rechtliches"><div class="footer-shell"><div><strong>LuckyPilot</strong><p>Damit dir kein Gewinnspiel entgeht.</p></div><div class="footer-links"><a href="legal/impressum.html">Impressum</a><a href="legal/datenschutz.html">Datenschutz</a><a href="legal/gewinnspielhinweise.html">Gewinnspielhinweise</a><a href="legal/luckyscore.html">LuckyScore</a></div><p class="legal-note">LuckyPilot ist ein unabhängiges Verzeichnis und nicht Veranstalter der verlinkten Gewinnspiele. Angaben können sich ändern; maßgeblich ist stets die offizielle Aktionsseite.</p></div></footer>
+
+<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal"><div class="modal-head"><div><span class="eyebrow">Eigener Eintrag</span><h2 id="modalTitle">Externes Gewinnspiel hinzufügen</h2></div><button class="icon-button" id="closeBtn" aria-label="Schließen">×</button></div>
+    <div class="form"><label>Titel<input id="fName" placeholder="Sachlicher, eigener Titel"></label><label>Veranstalter<input id="fPlatform"></label><label>Gewinn<input id="fPrize"></label><label>Kategorie<select id="fCategory"><option>Reise</option><option>Geld</option><option>Auto</option><option>Technik</option><option>Gutschein</option><option>Familie</option><option>Sonstiges</option></select></label><label>Teilnahmeschluss<input id="fDeadline" type="date"></label><label>Mehrfachteilnahme<select id="fMultiple"><option>Unbekannt</option><option>Nein</option><option>Ja</option></select></label><label>Intervall<select id="fInterval"><option>Unbekannt</option><option>Einmalig</option><option>Täglich</option><option>Alle 24 Stunden</option><option>Wöchentlich</option></select></label><label>Zuletzt geprüft<input id="fChecked" type="date"></label><label class="full">Offizielle Aktionsseite<input id="fLink" type="url" placeholder="https://…"></label><label class="full">Eigene Kurzbeschreibung<textarea id="fNotes" rows="3" placeholder="Nur selbst formulierte, sachliche Beschreibung – keine kopierten Teilnahmebedingungen."></textarea></label></div>
+    <p class="form-hint">Bitte keine fremden Bilder, Logos, vollständigen Texte oder Teilnahmebedingungen ohne geklärte Nutzungsrechte übernehmen.</p>
+    <div class="modal-actions"><button class="button button-soft" id="cancelBtn">Abbrechen</button><button class="button button-primary" id="saveBtn">Speichern</button></div>
+  </div>
+</div>
+<script src="script.js?v=2.3.0" defer></script>
+</body></html>
