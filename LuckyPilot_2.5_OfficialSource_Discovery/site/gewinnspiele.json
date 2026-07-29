@@ -1,0 +1,18 @@
+[
+  {
+    "id": "beispiel-001",
+    "title": "Beispiel: Reisegutschein gewinnen",
+    "prize": "Reisegutschein im Wert von 1.000 Euro",
+    "organizer": "Beispiel-Veranstalter",
+    "description": "Dies ist ein Muster-Eintrag. Ersetze ihn durch eine selbst formulierte, sachliche Kurzbeschreibung des offiziellen Gewinnspiels.",
+    "sourceUrl": "https://example.com/",
+    "deadline": "2026-12-31",
+    "category": "Reise",
+    "participationFrequency": "einmalig",
+    "verified": false,
+    "lastChecked": "2026-07-29",
+    "added": "2026-07-29",
+    "imageUrl": "",
+    "imageRightsConfirmed": false
+  }
+]

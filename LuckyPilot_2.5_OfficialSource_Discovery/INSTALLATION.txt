@@ -1,0 +1,25 @@
+LUCKYPILOT 2.5 – OFFICIAL SOURCE DISCOVERY
+
+1. ZIP entpacken.
+2. Den Inhalt in das Hauptverzeichnis des GitHub-Repositories hochladen.
+3. Vorhandene Dateien ersetzen.
+4. Die Ordnerstruktur muss so aussehen:
+
+luckypilot/
+├── .github/workflows/update-sweepstakes.yml
+├── scripts/update_sweepstakes.py
+└── site/
+    ├── gewinnspiele.json
+    └── data/
+        ├── sources.json
+        └── autofinder-report.json
+
+5. Commit-Nachricht:
+   LuckyPilot 2.5 Official Source Discovery
+
+6. GitHub → Actions → LuckyPilot Official Source Discovery → Run workflow.
+
+Danach läuft die Suche automatisch jeden Morgen. Der erste Lauf kann je nach
+Sitemap mehrere Minuten dauern. Quellen, die robots.txt nicht freigibt, werden
+übersprungen. Das System übernimmt keine Bilder, Logos, Volltexte oder
+Teilnahmebedingungen und nimmt niemals automatisch an Gewinnspielen teil.

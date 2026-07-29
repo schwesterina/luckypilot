@@ -1,0 +1,67 @@
+{
+  "policy": {
+    "official_domains_only": true,
+    "respect_robots_txt": true,
+    "copy_descriptions": false,
+    "copy_images": false,
+    "automate_participation": false
+  },
+  "sources": [
+    {
+      "name": "REWE – offizielle Website",
+      "type": "official_sitemap",
+      "enabled": true,
+      "organizer": "REWE",
+      "domain": "rewe.de",
+      "base_url": "https://www.rewe.de",
+      "sitemaps": ["https://www.rewe.de/sitemap.xml"],
+      "keywords": ["gewinnspiel", "verlosung"],
+      "page_keywords": ["gewinnspiel", "teilnahmeschluss", "teilnahmebedingungen"],
+      "category": "Einkauf",
+      "max_pages_per_run": 20,
+      "delay_seconds": 1.0
+    },
+    {
+      "name": "Kaufland – offizielle Website",
+      "type": "official_sitemap",
+      "enabled": true,
+      "organizer": "Kaufland",
+      "domain": "kaufland.de",
+      "base_url": "https://www.kaufland.de",
+      "sitemaps": ["https://www.kaufland.de/sitemap.xml"],
+      "keywords": ["gewinnspiel", "verlosung"],
+      "page_keywords": ["gewinnspiel", "teilnahmeschluss", "teilnahmebedingungen"],
+      "category": "Einkauf",
+      "max_pages_per_run": 20,
+      "delay_seconds": 1.0
+    },
+    {
+      "name": "dm – offizielle Website",
+      "type": "official_sitemap",
+      "enabled": true,
+      "organizer": "dm-drogerie markt",
+      "domain": "dm.de",
+      "base_url": "https://www.dm.de",
+      "sitemaps": ["https://www.dm.de/sitemap.xml"],
+      "keywords": ["gewinnspiel", "verlosung"],
+      "page_keywords": ["gewinnspiel", "teilnahmeschluss", "teilnahmebedingungen"],
+      "category": "Einkauf",
+      "max_pages_per_run": 20,
+      "delay_seconds": 1.0
+    },
+    {
+      "name": "Rossmann – offizielle Website",
+      "type": "official_sitemap",
+      "enabled": true,
+      "organizer": "ROSSMANN",
+      "domain": "rossmann.de",
+      "base_url": "https://www.rossmann.de",
+      "sitemaps": ["https://www.rossmann.de/sitemap.xml"],
+      "keywords": ["gewinnspiel", "verlosung"],
+      "page_keywords": ["gewinnspiel", "teilnahmeschluss", "teilnahmebedingungen"],
+      "category": "Einkauf",
+      "max_pages_per_run": 20,
+      "delay_seconds": 1.0
+    }
+  ]
+}
