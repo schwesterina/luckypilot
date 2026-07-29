@@ -1,0 +1,22 @@
+LUCKYPILOT 2.3 – INSTALLATION
+
+1. ZIP entpacken.
+2. Im GitHub-Repository den Ordner "site" öffnen.
+3. Ersetzen/hochladen:
+   - index.html
+   - style.css
+   - script.js
+   - logo.svg
+   - favicon.svg
+   - legal/ (kompletter Ordner)
+4. gewinnspiele.json NICHT blind überschreiben, falls dort bereits echte Einträge enthalten sind.
+   Nutze das beiliegende Muster nur als Vorlage für neue Felder.
+5. manifest.webmanifest und service-worker.js können unverändert bleiben.
+6. Commit-Vorschlag: LuckyPilot 2.3 rechtssichere Basis
+7. Nach Veröffentlichung Strg + F5 drücken.
+
+WICHTIG VOR ÖFFENTLICHER VERÖFFENTLICHUNG:
+- Impressum vollständig ausfüllen.
+- Datenschutzerklärung an Hosting und eingesetzte Dienste anpassen.
+- Kontaktadresse für Korrektur-/Löschanfragen ergänzen.
+- Muster-Eintrag aus gewinnspiele.json entfernen oder ersetzen.

@@ -1,0 +1,9 @@
+{
+  "policy": {
+    "allow_html_scraping": false,
+    "auto_publish_only_approved": true,
+    "copy_descriptions": false,
+    "copy_images": false
+  },
+  "sources": []
+}
