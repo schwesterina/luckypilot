@@ -1,0 +1,28 @@
+[
+  {
+    "id": "demo-reise-001",
+    "title": "Reisegutschein gewinnen",
+    "prize": "Reisegutschein im Wert von 1.000 Euro",
+    "organizer": "Beispiel-Veranstalter",
+    "description": "Der Veranstalter verlost einen Reisegutschein. Alle verbindlichen Details stehen auf der offiziellen Aktionsseite.",
+    "sourceUrl": "https://example.com/",
+    "deadline": "2026-12-31",
+    "category": "Reisen",
+    "icon": "✈️",
+    "verified": false,
+    "lastChecked": "2026-07-29"
+  },
+  {
+    "id": "demo-technik-001",
+    "title": "Technikpaket gewinnen",
+    "prize": "Ein aktuelles Technikpaket",
+    "organizer": "Beispiel-Veranstalter",
+    "description": "Ein neutraler Demo-Eintrag für die neue Kartenansicht. Er wird später automatisch durch echte, zulässige Quellen ersetzt.",
+    "sourceUrl": "https://example.com/",
+    "deadline": "2026-11-30",
+    "category": "Technik",
+    "icon": "📱",
+    "verified": false,
+    "lastChecked": "2026-07-29"
+  }
+]
